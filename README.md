@@ -1,3 +1,24 @@
+# Fork
+
+* This fork adds cmake for compiling.
+* Currently only Linux x64 is supported by this cmake, but others be added soon. The hope is to replace WAF, but this is an experimental fork.
+
+* goals of this fork:
+  * use system libraries as much as possible
+  * avoid linking against pre-compiled binaries
+  * avoid running any code (eg python) on the build system other than the compiler
+  * build a working, easy to setup and native half-life game for platforms other than Windows that "extract and play" (Using legally owned game assets of course)
+  * improve memory safety
+  * use of dlopen is hard to debug
+  * tagged releases
+  * don't break compatibility with the original project and game
+  * simply for the fun of it
+
+* Included is a bash script `contrib/hl-build.sh` which generates an "extract and play" game for a Linux Desktop. This is not necessary for the project to work, its an example of how I set up a playable game with the limited information on the internet.
+
+Nothing in this fork is endorsed by the upstream project.
+
+
 # Xash3D FWGS Engine <img align="right" width="128" height="128" src="https://github.com/FWGS/xash3d-fwgs/raw/master/game_launch/icon-xash-material.png" alt="Xash3D FWGS icon" />
 [![GitHub Actions Status](https://github.com/FWGS/xash3d-fwgs/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/FWGS/xash3d-fwgs/actions/workflows/c-cpp.yml) [![FreeBSD Build Status](https://img.shields.io/cirrus/github/FWGS/xash3d-fwgs?label=freebsd%20build)](https://cirrus-ci.com/github/FWGS/xash3d-fwgs) \
 [![Discord Server](https://img.shields.io/discord/355697768582610945?logo=Discord&label=International%20Discord%20chat)](http://fwgsdiscord.mentality.rip/) [![Russian speakers Telegram Chat](https://img.shields.io/badge/Russian_speakers_Telegram_chat-gray?logo=Telegram)](https://t.me/flyingwithgauss) \
@@ -11,7 +32,7 @@ Xash3D FWGS is a heavily modified fork of an original [Xash3D Engine](https://ww
 [![Donate to FWGS button](https://img.shields.io/badge/Donate_to_FWGS-%3C3-magenta)](Documentation/donate.md) \
 If you like Xash3D FWGS, consider supporting individual engine maintainers. By supporting us, you help to continue developing this game engine further. The sponsorship links are available in [documentation](Documentation/donate.md).
 
-## Fork features
+## (fwgs) Fork features
 * Steam Half-Life (HLSDK 2.5) support.
 * Crossplatform and modern compilers support: supports Windows, Linux, BSD & Android on x86 & ARM and [many more](Documentation/ports.md).
 * Better multiplayer: multiple master servers, headless dedicated server, voice chat, [GoldSrc protocol support](Documentation/goldsrc-protocol-support.md) and IPv6 support.

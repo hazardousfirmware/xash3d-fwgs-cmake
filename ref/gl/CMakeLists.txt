@@ -7,9 +7,6 @@ file(GLOB REF_GL_FILES
 	gl2_shim/*.c
 )
 
-# Find OpenGL
-find_package(OpenGL REQUIRED)
-
 add_library(ref_gl SHARED
 	${REF_GL_FILES}
 )
@@ -19,7 +16,6 @@ target_compile_definitions(ref_gl PRIVATE
 )
 
 target_link_libraries(ref_gl
-	${OPENGL_LIBRARIES}
 	m
 	public
 )

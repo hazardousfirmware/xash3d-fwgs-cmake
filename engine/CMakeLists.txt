@@ -48,13 +48,20 @@ if (ENABLE_BACKTRACE)
 	)
 endif()
 
+set(TARGET_SPECIFIC_FILES "")
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+	file(GLOB TARGET_SPECIFIC_FILES
+		platform/linux/*.c
+		platform/posix/*.c
+	)
+# TODO: eventually add other platforms
+endif()
+
 # Game client library
 file(GLOB ENGINE_FILES
 	common/*.c
 	common/imagelib/*.c
 	common/soundlib/*.c
-	platform/linux/*.c
-	platform/posix/*.c
 	platform/sdl2/*.c
 	client/*.c
 	client/soundlib/*.c
@@ -63,7 +70,8 @@ file(GLOB ENGINE_FILES
 )
 
 add_library(xash SHARED
-	"${ENGINE_FILES}"
+	${ENGINE_FILES}
+	${TARGET_SPECIFIC_FILES}
 	common/http/net_http_xash.c
 	client/avi/avi_ffmpeg.c
 	client/vgui/vgui_draw.c
@@ -114,12 +122,11 @@ file(GLOB SERVER_FILES
 	common/*.c
 	common/imagelib/*.c
 	common/soundlib/*.c
-	platform/linux/*.c
-	platform/posix/*.c
 )
 
 add_executable(xashded
 	${SERVER_FILES}
+	${TARGET_SPECIFIC_FILES}
 	common/http/net_http_xash.c
 )
 
